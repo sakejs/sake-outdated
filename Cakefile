@@ -1,8 +1,9 @@
 require 'shortcake'
 
 use 'cake-publish'
-use 'cake-version'
 use 'cake-test'
+use 'cake-version'
+use 'cake-yarn'
 
 use require './'
 
