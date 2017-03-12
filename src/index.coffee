@@ -2,7 +2,7 @@ import exec from 'executive'
 import path from 'path'
 
 replacements =
-  'Run ncu with -u to upgrade package.json': 'Run `cake upgrade` to upgrade package.json'
+  'Run ncu with -u to upgrade package.json': "Use 'cake upgrade' to upgrade package.json"
 
 log = (stdout, stderr) ->
   stdout = stdout.trim()
