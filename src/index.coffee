@@ -3,16 +3,22 @@ import path from 'path'
 
 replacements = [
   from: 'Run ncu with -u to upgrade package.json'
-  to:   "Use 'cake upgrade' to upgrade your package.json"
+  to:   "Run 'cake upgrade' to update your package.json"
 ,
   from: 'The following dependencies are satisfied by their declared version range, but the installed versions are behind. You can install the latest versions without modifying your package file by using npm update. If you want to update the dependencies in your package file anyway, run ncu -a.'
-  to:   "The following dependencies are satisfied by their declared version range, but\nthe installed versions are behind. Use 'cake upgrade:all' to upgrade your\npackage file to use the latest versions."
+  to:   """
+  The following dependencies are satisfied by their declared version ranges. Run
+  'cake upgrade:all' to update your package.json to specify the latest versions.
+  """
 ,
   from: 'The following dependency is satisfied by its declared version range, but the installed version is behind. You can install the latest version without modifying your package file by using npm update. If you want to update the dependency in your package file anyway, run ncu -a.'
-  to:   "The following dependency is satisfied by its declared version range, but the\ninstalled version is behind. Use 'cake upgrade:all' to upgrade your package\nfile to the latest version."
+  to:   """
+  The following dependency is satisfied by its declared version range. Run 'cake
+  upgrade:all' to update your package.json to specify the latest version instead.
+  """
 ,
   from: 'All dependencies match the latest package versions :)'
-  to:   'All dependencies are up to date'
+  to:   'All dependencies up to date'
 ]
 
 log = (stdout, stderr) ->
@@ -37,8 +43,10 @@ export default (opts = {}) ->
     {stdout, stderr, status} = yield exec.quiet 'ncu -u'
     log stdout, stderr
     process.exit status if status != 0
+    exec 'npm update'
 
   task 'upgrade:all', 'upgrade outdated packages', ->
     {stdout, stderr, status} = yield exec.quiet 'ncu -ua'
     log stdout, stderr
     process.exit status if status != 0
+    exec 'npm update'

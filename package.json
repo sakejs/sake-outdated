@@ -9,10 +9,10 @@
     "lib/"
   ],
   "devDependencies": {
-    "cake-publish": "^0.1.5",
+    "cake-publish": "0.1.5",
     "cake-test": "0.1.0",
-    "cake-version": "^0.1.9",
-    "coffee-script": "^1.12.4",
+    "cake-version": "0.1.9",
+    "coffee-script": "1.12.4",
     "handroll": "0.7.2",
     "shortcake": "1.2.5"
   },
