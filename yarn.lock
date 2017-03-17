@@ -366,11 +366,11 @@ builtins@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/builtins/-/builtins-1.0.3.tgz#cb94faeb61c8696451db36534e1422f94f0aee88"
 
-cake-bundle@0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/cake-bundle/-/cake-bundle-0.1.2.tgz#0b275c2630e3369dd92e8eab0a73f4c8ad6ae9ae"
+cake-bundle@0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/cake-bundle/-/cake-bundle-0.1.3.tgz#792056b3f6533a59780ef76fd8e90722c646fd54"
   dependencies:
-    handroll "0.8.2"
+    handroll "0.8.3"
 
 cake-chai@0.1.1:
   version "0.1.1"
@@ -415,9 +415,9 @@ cake-version@0.1.9:
     executive "1.1.4"
     semver "5.1.0"
 
-cake-yarn@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/cake-yarn/-/cake-yarn-0.1.0.tgz#a96999712d78c471559c4c789c721cc3ce1d24ca"
+cake-yarn@0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/cake-yarn/-/cake-yarn-0.1.1.tgz#01374850f98b505e57f9a59df493166bdbf5918c"
 
 camelcase@^1.0.2:
   version "1.2.1"
@@ -1308,13 +1308,11 @@ handlebars@^4.0.1:
   optionalDependencies:
     uglify-js "^2.6"
 
-handroll@0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/handroll/-/handroll-0.8.2.tgz#c458a5369e9d2ebc91e77894bd6e0637546c3adc"
+handroll@0.8.3:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/handroll/-/handroll-0.8.3.tgz#bec5b9fd7536045587617526f6ec95f765db18de"
   dependencies:
     autoprefixer "6.7.7"
-    browser-resolve "1.11.2"
-    builtin-modules "1.1.1"
     chalk "1.1.3"
     css-mqpacker "5.0.1"
     filesize "3.5.6"
@@ -1324,13 +1322,13 @@ handroll@0.8.2:
     magic-string "0.19.0"
     postcss-discard-comments "2.0.4"
     poststylus "0.2.3"
-    resolve "1.3.2"
     rollup "0.41.6"
     rollup-plugin-commonjs "8.0.2"
     rollup-plugin-es3 "1.0.3"
     rollup-plugin-json "2.1.0"
     rollup-plugin-node-builtins "2.1.0"
     rollup-plugin-node-globals "1.1.0"
+    rollup-plugin-node-resolve-magic "0.1.5"
     rollup-plugin-pug "0.1.3"
     rollup-plugin-sizes "0.3.0"
     rollup-plugin-sourcemaps "0.4.1"
@@ -3074,6 +3072,14 @@ rollup-plugin-node-globals@1.1.0:
     magic-string "^0.16.0"
     process-es6 "^0.11.3"
     rollup-pluginutils "^1.5.2"
+
+rollup-plugin-node-resolve-magic@0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve-magic/-/rollup-plugin-node-resolve-magic-0.1.5.tgz#e061480bbfcfd3f3cc31ac2aa2916bbcf29bd6b5"
+  dependencies:
+    browser-resolve "1.11.2"
+    builtin-modules "1.1.1"
+    resolve "1.3.2"
 
 rollup-plugin-pug@0.1.3:
   version "0.1.3"
