@@ -49,7 +49,7 @@ update = ->
   ]
 
   if tasks.has 'yarn:upgrade'
-    cmds.push 'yarn upgrade'
+    cmds.unshift 'yarn upgrade'
   else
     cmds.push 'npm update'
 
