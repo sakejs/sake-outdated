@@ -34,19 +34,22 @@ log = (stdout, stderr) ->
 export default (opts = {}) ->
   opts.packageFile ?= path.join process.cwd(), 'package.json'
 
+  ncu = path.join (path.dirname (require.resolve 'npm-check-updates')), '../bin/ncu'
+
   task 'outdated', 'show outdated packages', ->
-    {stdout, stderr, status} = yield exec.quiet 'ncu'
+    {stdout, stderr, status} = yield exec.quiet ncu
     log stdout, stderr
     process.exit status if status != 0
 
   task 'outdated:update', 'update outdated packages', ->
-    {stdout, stderr, status} = yield exec.quiet 'ncu -u'
+    {stdout, stderr, status} = yield exec.quiet ncu + ' -u'
+    'ncu -u'
     log stdout, stderr
     process.exit status if status != 0
     exec 'npm update'
 
   task 'outdated:all', 'update outdated all packages', ->
-    {stdout, stderr, status} = yield exec.quiet 'ncu -ua'
+    {stdout, stderr, status} = yield exec.quiet ncu + ' -ua'
     log stdout, stderr
     process.exit status if status != 0
     exec 'npm update'
