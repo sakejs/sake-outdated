@@ -4,6 +4,7 @@ use 'cake-bundle'
 use 'cake-publish'
 use 'cake-test'
 use 'cake-version'
+use 'cake-yarn'
 
 use require './'
 
