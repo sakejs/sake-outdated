@@ -31,6 +31,30 @@ log = (stdout, stderr) ->
   console.log   stdout if stdout
   console.error stderr if stderr
 
+checkGit = ->
+  new Promise (resolve, reject) ->
+    exec.quiet 'git status --porcelain'
+      .then ({stdout, stderr}) ->
+        if stderr or stdout
+          console.log 'working directory not clean'
+          reject false
+        else
+          resolve true
+      .catch reject
+
+update = ->
+  cmds = [
+    'git add .'
+    'git commit -m Updated dependencies.'
+  ]
+
+  if tasks.has 'yarn:upgrade'
+    cmds.push 'yarn upgrade'
+  else
+    cmds.push 'npm update'
+
+  exec cmds
+
 export default (opts = {}) ->
   opts.packageFile ?= path.join process.cwd(), 'package.json'
 
@@ -42,14 +66,19 @@ export default (opts = {}) ->
     process.exit status if status != 0
 
   task 'outdated:update', 'update outdated packages', ->
+    return unless ok = yield checkGit()
+
     {stdout, stderr, status} = yield exec.quiet ncu + ' -u'
-    'ncu -u'
     log stdout, stderr
     process.exit status if status != 0
-    exec 'npm update'
+
+    yield update()
 
   task 'outdated:all', 'update outdated all packages', ->
+    return unless ok = yield checkGit()
+
     {stdout, stderr, status} = yield exec.quiet ncu + ' -ua'
     log stdout, stderr
     process.exit status if status != 0
-    exec 'npm update'
+
+    yield update()
