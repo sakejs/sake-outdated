@@ -39,13 +39,13 @@ export default (opts = {}) ->
     log stdout, stderr
     process.exit status if status != 0
 
-  task 'upgrade', 'upgrade outdated packages', ->
+  task 'outdated:update', 'update outdated packages', ->
     {stdout, stderr, status} = yield exec.quiet 'ncu -u'
     log stdout, stderr
     process.exit status if status != 0
     exec 'npm update'
 
-  task 'upgrade:all', 'upgrade outdated packages', ->
+  task 'outdated:all', 'update outdated all packages', ->
     {stdout, stderr, status} = yield exec.quiet 'ncu -ua'
     log stdout, stderr
     process.exit status if status != 0

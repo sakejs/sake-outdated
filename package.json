@@ -1,7 +1,7 @@
 {
   "name": "cake-outdated",
   "version": "0.1.2",
-  "description": "Find and upgrade outdated packages.",
+  "description": "Find and update outdated packages.",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "js:next": "lib/index.mjs",
@@ -9,11 +9,11 @@
     "lib/"
   ],
   "devDependencies": {
+    "cake-bundle": "0.1.0",
     "cake-publish": "0.1.5",
     "cake-test": "0.1.0",
     "cake-version": "0.1.9",
     "coffee-script": "1.12.4",
-    "handroll": "0.7.2",
     "shortcake": "1.2.5"
   },
   "scripts": {
@@ -21,15 +21,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zeekay/cake-yarn.git"
+    "url": "git+https://github.com/zeekay/cake-outdated.git"
   },
   "keywords": [],
   "author": "Zach Kelling <z@zeekay.io> (zeekay.io)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zeekay/cake-yarn/issues"
+    "url": "https://github.com/zeekay/cake-outdated/issues"
   },
-  "homepage": "https://github.com/zeekay/cake-yarn#readme",
+  "homepage": "https://github.com/zeekay/cake-outdated#readme",
   "dependencies": {
     "executive": "1.1.9",
     "npm-check-updates": "2.10.3"
