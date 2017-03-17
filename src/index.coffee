@@ -37,7 +37,7 @@ checkGit = ->
       .then ({stdout, stderr}) ->
         if stderr or stdout
           console.log 'working directory not clean'
-          reject false
+          process.exit 1
         else
           resolve true
       .catch reject
@@ -45,7 +45,7 @@ checkGit = ->
 update = ->
   cmds = [
     'git add .'
-    'git commit -m Updated dependencies.'
+    'git commit -m "Updated dependencies."'
   ]
 
   if tasks.has 'yarn:upgrade'
