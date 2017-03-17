@@ -45,7 +45,7 @@ checkGit = ->
 update = ->
   cmds = [
     'git add .'
-    'git commit -m "Updated dependencies."'
+    'git commit -m "Update dependencies to latest versions."'
   ]
 
   if tasks.has 'yarn:upgrade'
