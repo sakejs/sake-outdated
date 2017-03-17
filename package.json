@@ -1,6 +1,6 @@
 {
   "name": "cake-outdated",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Find and update outdated packages.",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
