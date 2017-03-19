@@ -2,11 +2,12 @@
   "name": "cake-outdated",
   "version": "0.1.8",
   "description": "Find and update outdated packages.",
-  "main": "lib/index.js",
-  "module": "lib/index.mjs",
-  "js:next": "lib/index.mjs",
+  "main": "dist/lib.js",
+  "module": "dist/lib.mjs",
+  "js:next": "dist/lib.mjs",
   "files": [
-    "lib/"
+    "README.md",
+    "dist/"
   ],
   "devDependencies": {
     "cake-bundle": "0.1.3",
