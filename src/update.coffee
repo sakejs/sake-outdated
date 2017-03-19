@@ -8,8 +8,7 @@ splitLines = (stdout) ->
 
 # Reads updated deps from output of command
 parseDeps = (lines) ->
-  lines = stdout.split '\n'
-  for dep in lines.slice 2, -4
+  for dep in lines
     (dep.trim().split ' ').shift()
 
 # Commit changes + run npm or yarn update
