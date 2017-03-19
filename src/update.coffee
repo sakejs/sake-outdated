@@ -12,9 +12,6 @@ parseDeps = (lines) ->
   for dep in lines
     (dep.trim().split ' ').shift()
 
-# sync message write method for git commit messages
-writeMessage = (message) ->
-
 # Commit changes + run npm or yarn update
 export default (stdout) ->
   lines = splitLines stdout
@@ -34,7 +31,7 @@ export default (stdout) ->
         cmds = [
           'git add .'
           "git commit -F #{path}"
-          'rm message.txt'
+          "rm #{path}"
         ]
 
         if tasks.has 'yarn:upgrade'
