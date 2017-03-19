@@ -34,6 +34,7 @@
   "homepage": "https://github.com/zeekay/cake-outdated#readme",
   "dependencies": {
     "executive": "1.1.9",
-    "npm-check-updates": "2.10.3"
+    "npm-check-updates": "2.10.3",
+    "tmp": "0.0.31"
   }
 }
