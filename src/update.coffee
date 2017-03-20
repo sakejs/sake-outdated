@@ -39,20 +39,18 @@ export default (stdout) ->
 
   writeMessage = ->
     new Promise (resolve, reject) ->
-      tmp.file (err, _path, fd) ->
+      tmp.file (err, path, fd) ->
         return reject err if err?
-
-        path = _path # save reference to tmp file path
 
         fs.writeFile fd, message, (err) ->
           if err?
             reject err
           else
-            resolve()
+            resolve path
 
   cmds = [
     'git add .'
-    -> writeMessage()
+    -> writeMessage.then (v) -> path = v
     -> "git commit -F #{path}"
   ]
 
