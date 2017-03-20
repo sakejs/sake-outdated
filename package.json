@@ -9,15 +9,6 @@
     "README.md",
     "dist/"
   ],
-  "devDependencies": {
-    "cake-bundle": "0.1.8",
-    "cake-publish": "0.1.5",
-    "cake-test": "0.1.0",
-    "cake-version": "0.1.9",
-    "cake-yarn": "0.1.1",
-    "coffee-script": "1.12.4",
-    "shortcake": "1.2.5"
-  },
   "scripts": {
     "prepublish": "cake build"
   },
@@ -36,5 +27,14 @@
     "executive": "1.2.3",
     "npm-check-updates": "2.10.3",
     "tmp": "0.0.31"
+  },
+  "devDependencies": {
+    "cake-bundle": "0.1.8",
+    "cake-publish": "0.1.5",
+    "cake-test": "0.1.0",
+    "cake-version": "0.1.9",
+    "cake-yarn": "0.1.1",
+    "coffee-script": "1.12.4",
+    "shortcake": "1.2.0"
   }
 }
