@@ -2,28 +2,7 @@ import exec from 'executive'
 import fs   from 'fs'
 import tmp  from 'tmp'
 
-# Split stdout lines, skipping header/footer text
-splitLines = (stdout) ->
-  lines = stdout.split '\n'
-
-  # Trim header/footer
-  lines = lines.slice 2, -4
-
-  # Normalize spacing
-  for line, i in lines
-    lines[i] = '  ' + line.trim()
-
-  # Trim satisfied but behind message
-  for line, i in lines
-    if /The following dependencies/.test line
-      return lines.slice 0, i
-
-  lines
-
-# Reads updated deps from output of command
-parseDeps = (lines) ->
-  for dep in lines
-    (dep.trim().split ' ').shift()
+import {splitLines, parseDeps} from './utils'
 
 # Commit changes + run npm or yarn update
 export default (stdout) ->

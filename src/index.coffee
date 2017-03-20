@@ -2,8 +2,14 @@ import path from 'path'
 
 import npmFix from './npmfix'
 import update from './update'
-import {gitOk, log} from './utils'
+import {gitOk, log, splitLines, parseDeps} from './utils'
 
+needsUpdate = (stdout) ->
+  deps = parseDeps splitLines stdout
+  if deps.length
+    true
+  else
+    false
 
 export default (opts = {}) ->
   opts.commit ?= true
@@ -25,10 +31,8 @@ export default (opts = {}) ->
     log stdout, stderr
     process.exit status if status != 0
 
-    if /All dependencies match/.test stdout
-      return
-
-    yield update stdout if opts.commit
+    if needsUpdate stdout
+      yield update stdout if opts.commit
 
   task 'outdated:all', 'update all outdated packages', ->
     return unless yield gitOk()
@@ -38,7 +42,5 @@ export default (opts = {}) ->
     log stdout, stderr
     process.exit status if status != 0
 
-    if /All dependencies match/.test stdout
-      return
-
-    yield update stdout if opts.commit
+    if needsUpdate stdout
+      yield update stdout if opts.commit
