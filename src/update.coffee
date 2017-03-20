@@ -27,7 +27,7 @@ parseDeps = (lines) ->
 
 # Commit changes + run npm or yarn update
 export default (stdout) ->
-  message = null
+  filename = null
 
   writeMessage = (stdout) ->
     lines = splitLines stdout
@@ -41,7 +41,7 @@ export default (stdout) ->
 
     new Promise (resolve, reject) ->
       tmp.file (err, path, fd) ->
-        message = path
+        filename = path
         fs.writeFile fd, message, (err) ->
           if err?
             reject err
@@ -52,8 +52,8 @@ export default (stdout) ->
   cmds = [
     'git add .'
     -> writeMessage stdout
-    "git commit -F #{message}"
-    "rm #{message}"
+    "git commit -F #{filename}"
+    "rm #{filename}"
   ]
 
   if tasks.has 'yarn:upgrade'
