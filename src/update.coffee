@@ -57,8 +57,10 @@ export default (stdout) ->
   ]
 
   if tasks.has 'yarn:upgrade'
+    # Ensure yarn runs first so yarn.lock file is committed
     cmds.unshift 'yarn upgrade'
   else
+    # Otherwise run npm update last
     cmds.push 'npm update'
 
   exec cmds
