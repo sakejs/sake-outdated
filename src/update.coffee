@@ -5,7 +5,20 @@ import tmp  from 'tmp'
 # Split stdout lines, skipping header/footer text
 splitLines = (stdout) ->
   lines = stdout.split '\n'
-  lines.slice 2, -4
+
+  # Trim header/footer
+  lines = lines.slice 2, -4
+
+  # Normalize spacing
+  for line, i in lines
+    lines[i] = '  ' + line.trim()
+
+  # Trim satisfied but behind message
+  for line, i in lines
+    if /The following dependencies/.test line
+      return lines.slice 0, i
+
+  lines
 
 # Reads updated deps from output of command
 parseDeps = (lines) ->
@@ -18,7 +31,7 @@ export default (stdout) ->
   deps  = parseDeps lines
 
   message = """
-    Updated #{deps.join ', '}
+    Update #{deps.join ', '}
 
     #{lines.join '\n'}
     """
