@@ -18,7 +18,7 @@ export default (opts = {}) ->
     process.exit status if status != 0
 
   task 'outdated:update', 'update outdated packages', ->
-    # return unless yield gitOk()
+    return unless yield gitOk()
     return unless yield npmFix()
 
     {stdout, stderr, status} = yield exec.quiet ncu + ' -u'
