@@ -40,6 +40,7 @@ export default (stdout) ->
   writeMessage = ->
     new Promise (resolve, reject) ->
       tmp.file (err, _path, fd) ->
+        console.log 'err creating tmp file:', err
         return reject err if err?
 
         console.log 'created temporary file', path
@@ -48,6 +49,7 @@ export default (stdout) ->
 
         fs.writeFile fd, msg, (err) ->
           if err?
+            console.log 'failed to write commit message'
             reject err
           else
             console.log 'wrote commit message'
@@ -55,7 +57,9 @@ export default (stdout) ->
 
   cmds = [
     'git add .'
-    -> writeMessage()
+    ->
+      console.log 'trying to writeMessage'
+      writeMessage()
     ->
       console.log "commiting #{path}"
       "git commit -F #{path}"
