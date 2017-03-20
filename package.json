@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/zeekay/cake-outdated#readme",
   "dependencies": {
-    "executive": "1.2.4",
+    "executive": "1.2.5",
     "npm-check-updates": "2.10.3",
     "tmp": "0.0.31"
   },
@@ -35,6 +35,6 @@
     "cake-version": "0.1.9",
     "cake-yarn": "0.1.1",
     "coffee-script": "1.12.4",
-    "shortcake": "1.2.0"
+    "shortcake": "1.2.5"
   }
 }

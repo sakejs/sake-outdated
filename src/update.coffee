@@ -40,39 +40,25 @@ export default (stdout) ->
   writeMessage = ->
     new Promise (resolve, reject) ->
       tmp.file (err, _path, fd) ->
-        console.log 'err creating tmp file:', err
         return reject err if err?
-
-        console.log 'created temporary file', path
 
         path = _path # save reference to tmp file path
 
         fs.writeFile fd, message, (err) ->
           if err?
-            console.log 'failed to write commit message'
             reject err
           else
-            console.log 'wrote commit message'
             resolve()
 
   cmds = [
     'git add .'
-    ->
-      console.log 'trying to writeMessage'
-      writeMessage()
-    ->
-      console.log "commiting #{path}"
-      "git commit -F #{path}"
+    -> writeMessage()
+    -> "git commit -F #{path}"
   ]
 
   if tasks.has 'yarn:upgrade'
     cmds.unshift 'yarn upgrade'
   else
     cmds.push 'npm update'
-
-  cmds.unshift -> console.log 'start'
-  cmds.push    -> console.log 'end'
-
-  console.log cmds
 
   exec cmds
