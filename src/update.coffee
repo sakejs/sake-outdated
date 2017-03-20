@@ -42,18 +42,23 @@ export default (stdout) ->
       tmp.file (err, _path, fd) ->
         return reject err if err?
 
+        console.log 'created temporary file', path
+
         path = _path # save reference to tmp file path
 
         fs.writeFile fd, msg, (err) ->
           if err?
             reject err
           else
+            console.log 'wrote commit message'
             resolve()
 
   cmds = [
     'git add .'
     -> writeMessage()
-    -> "git commit -F #{path}"
+    ->
+      console.log "commiting #{path}"
+      "git commit -F #{path}"
   ]
 
   if tasks.has 'yarn:upgrade'
