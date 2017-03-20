@@ -70,4 +70,7 @@ export default (stdout) ->
   else
     cmds.push 'npm update'
 
+  cmds.unshift -> console.log 'start'
+  cmds.push    -> console.log 'end'
+
   exec cmds
