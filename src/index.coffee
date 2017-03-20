@@ -25,6 +25,9 @@ export default (opts = {}) ->
     log stdout, stderr
     process.exit status if status != 0
 
+    if /All dependencies match/.test stdout
+      return
+
     yield update stdout if opts.commit
 
   task 'outdated:all', 'update all outdated packages', ->
@@ -34,5 +37,8 @@ export default (opts = {}) ->
     {stdout, stderr, status} = yield exec.quiet ncu + ' -ua'
     log stdout, stderr
     process.exit status if status != 0
+
+    if /All dependencies match/.test stdout
+      return
 
     yield update stdout if opts.commit
