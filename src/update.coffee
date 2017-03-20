@@ -25,8 +25,7 @@ parseDeps = (lines) ->
   for dep in lines
     (dep.trim().split ' ').shift()
 
-# Commit changes + run npm or yarn update
-export default (stdout) ->
+writeMessage = (stdout) ->
   lines = splitLines stdout
   deps  = parseDeps lines
 
@@ -39,19 +38,23 @@ export default (stdout) ->
   new Promise (resolve, reject) ->
     tmp.file (err, path, fd) ->
       fs.writeFile fd, message, (err) ->
-        return reject err if err?
-
-        cmds = [
-          'git add .'
-          "git commit -F #{path}"
-          "rm #{path}"
-        ]
-
-        if tasks.has 'yarn:upgrade'
-          cmds.unshift 'yarn upgrade'
+        if err?
+          reject err
         else
-          cmds.push 'npm update'
+          resolve()
 
-        exec cmds
-          .then resolve
-          .catch reject
+# Commit changes + run npm or yarn update
+export default (stdout) ->
+  cmds = [
+    'git add .'
+    -> writeMessage stdout
+    "git commit -F #{path}"
+    "rm #{path}"
+  ]
+
+  if tasks.has 'yarn:upgrade'
+    cmds.unshift 'yarn upgrade'
+  else
+    cmds.push 'npm update'
+
+  exec cmds
