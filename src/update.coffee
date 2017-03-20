@@ -47,7 +47,7 @@ export default (stdout) ->
 
         path = _path # save reference to tmp file path
 
-        fs.writeFile fd, msg, (err) ->
+        fs.writeFile fd, message, (err) ->
           if err?
             console.log 'failed to write commit message'
             reject err
