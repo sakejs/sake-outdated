@@ -73,4 +73,6 @@ export default (stdout) ->
   cmds.unshift -> console.log 'start'
   cmds.push    -> console.log 'end'
 
+  console.log cmds
+
   exec cmds
