@@ -19,13 +19,15 @@ export default (opts = {}) ->
   ncu = path.join (path.dirname (require.resolve 'npm-check-updates')), '../bin/ncu'
 
   task 'outdated', 'show outdated packages', ->
+    return unless yield npmFix()
+
     {stdout, stderr, status} = yield exec.quiet ncu
     log stdout, stderr
     process.exit status if status != 0
 
   task 'outdated:update', 'update outdated packages', ->
-    return unless yield gitOk()
     return unless yield npmFix()
+    return unless yield gitOk()
 
     {stdout, stderr, status} = yield exec.quiet ncu + ' -u'
     log stdout, stderr
@@ -35,8 +37,8 @@ export default (opts = {}) ->
       yield update stdout if opts.commit
 
   task 'outdated:all', 'update all outdated packages', ->
-    return unless yield gitOk()
     return unless yield npmFix()
+    return unless yield gitOk()
 
     {stdout, stderr, status} = yield exec.quiet ncu + ' -ua'
     log stdout, stderr
