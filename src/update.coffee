@@ -4,32 +4,31 @@ import tmp  from 'tmp'
 
 import {splitLines, parseDeps} from './utils'
 
+write = (data) ->
+  new Promise (resolve, reject) ->
+    tmp.file (err, path, fd) ->
+      return reject err if err?
+
+      fs.writeFile fd, data, (err) ->
+        if err?
+          reject err
+        else
+          resolve path
+
 # Commit changes + run npm or yarn update
 export default (stdout) ->
-  lines = splitLines stdout
-  deps  = parseDeps lines
-  path  = null
-
+  lines   = splitLines stdout
+  deps    = parseDeps lines
   message = """
     Update #{deps.join ', '}
 
     #{lines.join '\n'}
     """
 
-  writeMessage = ->
-    new Promise (resolve, reject) ->
-      tmp.file (err, path, fd) ->
-        return reject err if err?
-
-        fs.writeFile fd, message, (err) ->
-          if err?
-            reject err
-          else
-            resolve path
-
+  path = null
   cmds = [
     'git add .'
-    -> writeMessage.then (v) -> path = v
+    -> (write message).then (v) -> path = v
     -> "git commit -F #{path}"
   ]
 
