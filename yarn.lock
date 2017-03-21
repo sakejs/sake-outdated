@@ -366,11 +366,11 @@ builtins@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/builtins/-/builtins-1.0.3.tgz#cb94faeb61c8696451db36534e1422f94f0aee88"
 
-cake-bundle@0.1.9:
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/cake-bundle/-/cake-bundle-0.1.9.tgz#f4236f72ce1a8fec64591fb212dfdea583c36411"
+cake-bundle@0.1.20:
+  version "0.1.20"
+  resolved "https://registry.yarnpkg.com/cake-bundle/-/cake-bundle-0.1.20.tgz#9eba554b10c0d062bc6a68122208a4511cc40d5b"
   dependencies:
-    handroll "0.9.6"
+    handroll "0.9.16"
 
 cake-chai@0.1.1:
   version "0.1.1"
@@ -408,12 +408,12 @@ cake-test@0.1.0:
     cake-coverage "0.1.3"
     cake-mocha "0.0.4"
 
-cake-version@0.1.9:
-  version "0.1.9"
-  resolved "https://registry.yarnpkg.com/cake-version/-/cake-version-0.1.9.tgz#fa03cfd2db9153c7ae483cecfd92020bd0a23b11"
+cake-version@0.1.11:
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/cake-version/-/cake-version-0.1.11.tgz#8e544cf817516588509632f89ee5637985bbdf1c"
   dependencies:
-    executive "1.1.4"
-    semver "5.1.0"
+    executive "1.2.5"
+    semver "5.3.0"
 
 cake-yarn@0.1.1:
   version "0.1.1"
@@ -944,12 +944,6 @@ evp_bytestokey@^1.0.0:
   dependencies:
     create-hash "^1.1.1"
 
-executive@1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/executive/-/executive-1.1.4.tgz#13ab2e8b05aa4891c6d7bd48289b12c92682d3ec"
-  dependencies:
-    shell-quote "^1.4.3"
-
 executive@1.1.9:
   version "1.1.9"
   resolved "https://registry.yarnpkg.com/executive/-/executive-1.1.9.tgz#f590f740259b305b55609bb7003b29bd38b10819"
@@ -1272,9 +1266,9 @@ handlebars@^4.0.1:
   optionalDependencies:
     uglify-js "^2.6"
 
-handroll@0.9.6:
-  version "0.9.6"
-  resolved "https://registry.yarnpkg.com/handroll/-/handroll-0.9.6.tgz#ace76ead74bdface6fc446671594c0286e6e062d"
+handroll@0.9.16:
+  version "0.9.16"
+  resolved "https://registry.yarnpkg.com/handroll/-/handroll-0.9.16.tgz#ed05e651dd1c3a4639222c6ef2e4502f40f8e70c"
   dependencies:
     autoprefixer "6.7.7"
     chalk "1.1.3"
@@ -1290,15 +1284,16 @@ handroll@0.9.6:
     rollup-plugin-commonjs "8.0.2"
     rollup-plugin-es3 "1.0.3"
     rollup-plugin-json "2.1.0"
+    rollup-plugin-legacy "1.0.0"
     rollup-plugin-node-builtins "2.1.0"
     rollup-plugin-node-globals "1.1.0"
-    rollup-plugin-node-resolve-magic "0.1.6"
+    rollup-plugin-node-resolve-magic "0.1.10"
     rollup-plugin-pug "0.1.3"
     rollup-plugin-sizes "0.3.0"
     rollup-plugin-sourcemaps "0.4.1"
     rollup-plugin-strip "1.1.1"
     rupture "0.6.2"
-    uglify-js "2.8.14"
+    uglify-js "git+https://github.com/mishoo/UglifyJS2.git#harmony"
 
 har-validator@~2.0.6:
   version "2.0.6"
@@ -2722,9 +2717,9 @@ read@1, read@~1.0.1, read@~1.0.7:
   dependencies:
     mute-stream "~0.0.4"
 
-"readable-stream@1 || 2", readable-stream@^2.0.0, "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.2, readable-stream@^2.0.5, readable-stream@^2.2.2:
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.6.tgz#8b43aed76e71483938d12a8d46c6cf1a00b1f816"
+"readable-stream@1 || 2", "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.2, readable-stream@~2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.1.5.tgz#66fa8b720e1438b364681f2ad1a63c618448c9d0"
   dependencies:
     buffer-shims "^1.0.0"
     core-util-is "~1.0.0"
@@ -2743,10 +2738,11 @@ readable-stream@^1.0.26-4, readable-stream@~1.0.26, readable-stream@~1.0.26-4:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-readable-stream@~2.0.5:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.0.6.tgz#8f90341e68a53ccc928788dacfcd11b36eb9b78e"
+readable-stream@^2.0.0, readable-stream@^2.0.5, readable-stream@^2.2.2:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.6.tgz#8b43aed76e71483938d12a8d46c6cf1a00b1f816"
   dependencies:
+    buffer-shims "^1.0.0"
     core-util-is "~1.0.0"
     inherits "~2.0.1"
     isarray "~1.0.0"
@@ -2754,11 +2750,10 @@ readable-stream@~2.0.5:
     string_decoder "~0.10.x"
     util-deprecate "~1.0.1"
 
-readable-stream@~2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.1.5.tgz#66fa8b720e1438b364681f2ad1a63c618448c9d0"
+readable-stream@~2.0.5:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.0.6.tgz#8f90341e68a53ccc928788dacfcd11b36eb9b78e"
   dependencies:
-    buffer-shims "^1.0.0"
     core-util-is "~1.0.0"
     inherits "~2.0.1"
     isarray "~1.0.0"
@@ -2815,53 +2810,7 @@ repeating@^2.0.0:
   dependencies:
     is-finite "^1.0.0"
 
-request@2, request@2.79.0, request@^2.74.0:
-  version "2.79.0"
-  resolved "https://registry.yarnpkg.com/request/-/request-2.79.0.tgz#4dfe5bf6be8b8cdc37fcf93e04b65577722710de"
-  dependencies:
-    aws-sign2 "~0.6.0"
-    aws4 "^1.2.1"
-    caseless "~0.11.0"
-    combined-stream "~1.0.5"
-    extend "~3.0.0"
-    forever-agent "~0.6.1"
-    form-data "~2.1.1"
-    har-validator "~2.0.6"
-    hawk "~3.1.3"
-    http-signature "~1.1.0"
-    is-typedarray "~1.0.0"
-    isstream "~0.1.2"
-    json-stringify-safe "~5.0.1"
-    mime-types "~2.1.7"
-    oauth-sign "~0.8.1"
-    qs "~6.3.0"
-    stringstream "~0.0.4"
-    tough-cookie "~2.3.0"
-    tunnel-agent "~0.4.1"
-    uuid "^3.0.0"
-
-request@2.42.0:
-  version "2.42.0"
-  resolved "https://registry.yarnpkg.com/request/-/request-2.42.0.tgz#572bd0148938564040ac7ab148b96423a063304a"
-  dependencies:
-    bl "~0.9.0"
-    caseless "~0.6.0"
-    forever-agent "~0.5.0"
-    json-stringify-safe "~5.0.0"
-    mime-types "~1.0.1"
-    node-uuid "~1.4.0"
-    qs "~1.2.0"
-    tunnel-agent "~0.4.0"
-  optionalDependencies:
-    aws-sign2 "~0.5.0"
-    form-data "~0.1.0"
-    hawk "1.1.1"
-    http-signature "~0.10.0"
-    oauth-sign "~0.4.0"
-    stringstream "~0.0.4"
-    tough-cookie ">=0.12.0"
-
-request@~2.75.0:
+request@2, request@^2.74.0, request@~2.75.0:
   version "2.75.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.75.0.tgz#d2b8268a286da13eaa5d01adf5d18cc90f657d93"
   dependencies:
@@ -2886,6 +2835,52 @@ request@~2.75.0:
     stringstream "~0.0.4"
     tough-cookie "~2.3.0"
     tunnel-agent "~0.4.1"
+
+request@2.42.0:
+  version "2.42.0"
+  resolved "https://registry.yarnpkg.com/request/-/request-2.42.0.tgz#572bd0148938564040ac7ab148b96423a063304a"
+  dependencies:
+    bl "~0.9.0"
+    caseless "~0.6.0"
+    forever-agent "~0.5.0"
+    json-stringify-safe "~5.0.0"
+    mime-types "~1.0.1"
+    node-uuid "~1.4.0"
+    qs "~1.2.0"
+    tunnel-agent "~0.4.0"
+  optionalDependencies:
+    aws-sign2 "~0.5.0"
+    form-data "~0.1.0"
+    hawk "1.1.1"
+    http-signature "~0.10.0"
+    oauth-sign "~0.4.0"
+    stringstream "~0.0.4"
+    tough-cookie ">=0.12.0"
+
+request@2.79.0:
+  version "2.79.0"
+  resolved "https://registry.yarnpkg.com/request/-/request-2.79.0.tgz#4dfe5bf6be8b8cdc37fcf93e04b65577722710de"
+  dependencies:
+    aws-sign2 "~0.6.0"
+    aws4 "^1.2.1"
+    caseless "~0.11.0"
+    combined-stream "~1.0.5"
+    extend "~3.0.0"
+    forever-agent "~0.6.1"
+    form-data "~2.1.1"
+    har-validator "~2.0.6"
+    hawk "~3.1.3"
+    http-signature "~1.1.0"
+    is-typedarray "~1.0.0"
+    isstream "~0.1.2"
+    json-stringify-safe "~5.0.1"
+    mime-types "~2.1.7"
+    oauth-sign "~0.8.1"
+    qs "~6.3.0"
+    stringstream "~0.0.4"
+    tough-cookie "~2.3.0"
+    tunnel-agent "~0.4.1"
+    uuid "^3.0.0"
 
 require-dir@^0.3.0:
   version "0.3.1"
@@ -2951,6 +2946,12 @@ rollup-plugin-json@2.1.0:
   dependencies:
     rollup-pluginutils "^1.5.2"
 
+rollup-plugin-legacy@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-legacy/-/rollup-plugin-legacy-1.0.0.tgz#d08bdfc4410bd13827f4278c51870d3d8dbd1ea3"
+  dependencies:
+    rollup-pluginutils "^1.5.2"
+
 rollup-plugin-node-builtins@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/rollup-plugin-node-builtins/-/rollup-plugin-node-builtins-2.1.0.tgz#ad97cb693b0bb1f8e4bea71aaf32b5dcff5c6ca0"
@@ -2971,9 +2972,9 @@ rollup-plugin-node-globals@1.1.0:
     process-es6 "^0.11.3"
     rollup-pluginutils "^1.5.2"
 
-rollup-plugin-node-resolve-magic@0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve-magic/-/rollup-plugin-node-resolve-magic-0.1.6.tgz#7bbb7029ca1e2ea48cd5c4af07cf0ef96978a93d"
+rollup-plugin-node-resolve-magic@0.1.10:
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve-magic/-/rollup-plugin-node-resolve-magic-0.1.10.tgz#62f4bfa1b683efaa5822cf341c876320dc667245"
   dependencies:
     browser-resolve "1.11.2"
     builtin-modules "1.1.1"
@@ -3048,13 +3049,9 @@ semver-utils@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/semver-utils/-/semver-utils-1.1.1.tgz#27d92fec34d27cfa42707d3b40d025ae9855f2df"
 
-"semver@2 >=2.2.1 || 3.x || 4 || 5", "semver@2 || 3 || 4 || 5", "semver@2.x || 3.x || 4 || 5", "semver@^2.3.0 || 3.x || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@~5.3.0:
+"semver@2 >=2.2.1 || 3.x || 4 || 5", "semver@2 || 3 || 4 || 5", "semver@2.x || 3.x || 4 || 5", semver@5.3.0, "semver@^2.3.0 || 3.x || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@~5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
-
-semver@5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.1.0.tgz#85f2cf8550465c4df000cf7d86f6b054106ab9e5"
 
 semver@^4.1.0:
   version "4.3.6"
@@ -3360,9 +3357,9 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-uglify-js@2.8.14, uglify-js@^2.6, uglify-js@^2.6.1:
+uglify-js@^2.6, uglify-js@^2.6.1, "uglify-js@git+https://github.com/mishoo/UglifyJS2.git#harmony":
   version "2.8.14"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.14.tgz#25b15d1af39b21752ee33703adbf432e8bc8f77d"
+  resolved "git+https://github.com/mishoo/UglifyJS2.git#7906033e82d66f2735f8626e98f0f7352d9b3d25"
   dependencies:
     source-map "~0.5.1"
     uglify-to-browserify "~1.0.0"
