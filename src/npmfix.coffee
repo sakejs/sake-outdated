@@ -12,9 +12,12 @@ export default ->
         console.log 'Attempting to fix npm...'
         npmPath = join (dirname require.resolve 'npm'), '../'
         npmLog  = join npmPath, 'node_modules', 'npmlog'
+
         fs.exists npmLog, (exists) ->
           if exists
-            exec "rm -rf #{npmLog}"
+            cmd = "rm -rf #{npmLog}"
+            console.log cmd
+            exec cmd
               .then  resolve
               .catch reject
           else
