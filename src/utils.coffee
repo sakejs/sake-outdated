@@ -44,4 +44,6 @@ export splitLines = (stdout) ->
 # Reads updated deps from output of command
 export parseDeps = (lines) ->
   for dep in lines
-    (dep.trim().split ' ').shift()
+    dep = (dep.trim().split ' ').shift()
+    continue if dep == ''
+    dep
