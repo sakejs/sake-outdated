@@ -25,12 +25,12 @@
   "homepage": "https://github.com/zeekay/cake-outdated#readme",
   "dependencies": {
     "executive": "1.2.5",
-    "npm4-check-updates": "2.10.3",
+    "npm4-check-updates": "2.10.4",
     "tmp": "0.0.31"
   },
   "devDependencies": {
-    "cake-bundle": "0.1.20",
-    "cake-publish": "0.1.5",
+    "cake-bundle": "0.2.4",
+    "cake-publish": "0.1.8",
     "cake-test": "0.1.0",
     "cake-version": "0.1.11",
     "cake-yarn": "0.1.1",
