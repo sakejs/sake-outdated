@@ -36,7 +36,7 @@ export splitLines = (stdout) ->
 
   # Trim satisfied but behind message
   for line, i in lines
-    if /The following dependencies/.test line
+    if /The following dependenc/.test line
       return lines.slice 0, i
 
   lines
