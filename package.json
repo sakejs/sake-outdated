@@ -29,7 +29,7 @@
     "tmp": "0.0.31"
   },
   "devDependencies": {
-    "cake-bundle": "0.2.6",
+    "cake-bundle": "0.2.14",
     "cake-publish": "0.1.10",
     "cake-test": "0.1.0",
     "cake-version": "0.1.11",
