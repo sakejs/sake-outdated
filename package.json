@@ -1,6 +1,6 @@
 {
   "name": "cake-outdated",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "Find and update outdated packages.",
   "main": "dist/lib.js",
   "module": "dist/lib.mjs",
