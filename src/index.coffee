@@ -40,7 +40,7 @@ export default (opts = {}) ->
     return unless yield npmFix()
     return unless yield gitOk()
 
-    {stdout, stderr, status} = yield exec.quiet ncu + ' -ua'
+    {stdout, stderr, status} = yield exec.quiet ncu + ' -u -a'
     log stdout, stderr
     process.exit status if status != 0
 
