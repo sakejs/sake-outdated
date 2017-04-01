@@ -10,7 +10,7 @@
     "dist/"
   ],
   "scripts": {
-    "prepublish": "cake build"
+    "prepublishOnly": "cake build"
   },
   "repository": {
     "type": "git",
