@@ -1,5 +1,5 @@
 {
-  "name": "cake-outdated",
+  "name": "sake-outdated",
   "version": "0.1.18",
   "description": "Find and update outdated packages.",
   "main": "dist/lib.js",
@@ -10,31 +10,31 @@
     "dist/"
   ],
   "scripts": {
-    "prepublishOnly": "cake build"
+    "prepublishOnly": "sake build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zeekay/cake-outdated.git"
+    "url": "git+https://github.com/sakejs/sake-outdated.git"
   },
   "keywords": [],
-  "author": "Zach Kelling <z@zeekay.io> (zeekay.io)",
+  "author": "Hanzo, Inc <hi@hanzo.io",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zeekay/cake-outdated/issues"
+    "url": "https://github.com/sakejs/sake-outdated/issues"
   },
-  "homepage": "https://github.com/zeekay/cake-outdated#readme",
+  "homepage": "https://github.com/sakejs/sake-outdated#readme",
   "dependencies": {
     "executive": "1.2.6",
     "npm4-check-updates": "2.10.4",
     "tmp": "0.0.31"
   },
   "devDependencies": {
-    "cake-bundle": "0.2.20",
-    "cake-publish": "0.1.10",
-    "cake-test": "0.1.0",
-    "cake-version": "0.1.14",
-    "cake-yarn": "0.1.1",
+    "sake-bundle": "0.2.20",
+    "sake-publish": "0.1.10",
+    "sake-test": "0.1.0",
+    "sake-version": "0.1.14",
+    "sake-yarn": "0.1.1",
     "coffee-script": "1.12.4",
-    "shortcake": "1.2.8"
+    "shortsake": "1.2.8"
   }
 }
