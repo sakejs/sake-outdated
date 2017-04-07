@@ -30,10 +30,10 @@
   },
   "devDependencies": {
     "coffee-script": "1.12.4",
-    "sake-bundle": "0.2.20",
+    "sake-bundle": "0.4.2",
     "sake-publish": "0.1.10",
     "sake-test": "0.1.0",
-    "sake-version": "0.1.14",
+    "sake-version": "0.1.16",
     "sake-yarn": "0.1.1"
   }
 }
