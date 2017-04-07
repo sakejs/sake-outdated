@@ -2,12 +2,12 @@
   "name": "sake-outdated",
   "version": "0.1.18",
   "description": "Find and update outdated packages.",
-  "main": "dist/lib.js",
-  "module": "dist/lib.mjs",
-  "js:next": "dist/lib.mjs",
+  "main": "lib/sake-outdated.js",
+  "module": "lib/sake-outdated.mjs",
+  "js:next": "lib/sake-outdated.mjs",
   "files": [
-    "README.md",
-    "dist/"
+    "lib/",
+    "src/"
   ],
   "scripts": {
     "prepublishOnly": "sake build"
@@ -18,7 +18,7 @@
   },
   "keywords": [],
   "author": "Hanzo, Inc. <hi@hanzo.io",
-  "license": "BSD",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/sakejs/sake-outdated/issues"
   },
@@ -29,12 +29,11 @@
     "tmp": "0.0.31"
   },
   "devDependencies": {
+    "coffee-script": "1.12.4",
     "sake-bundle": "0.2.20",
     "sake-publish": "0.1.10",
     "sake-test": "0.1.0",
     "sake-version": "0.1.14",
-    "sake-yarn": "0.1.1",
-    "coffee-script": "1.12.4",
-    "shortsake": "1.2.8"
+    "sake-yarn": "0.1.1"
   }
 }
