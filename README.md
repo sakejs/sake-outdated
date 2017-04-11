@@ -17,7 +17,7 @@ $ npm install sake-outdated --save-dev
 
 ## Usage
 ```javascript
-use('cake-outdated', {
+use('sake-outdated', {
     commit: true,       // automatically commit changes to git
     ignore: ['jquery'], // optionally ignore packages
 })
