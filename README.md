@@ -29,7 +29,7 @@ use('sake-outdated', {
 [build-img]:        https://img.shields.io/travis/sakejs/sake-outdated.svg
 [build-url]:        https://travis-ci.org/sakejs/sake-outdated
 [chat-img]:         https://badges.gitter.im/join-chat.svg
-[chat-url]:         https://gitter.im/sakejs/hi
+[chat-url]:         https://gitter.im/sakejs/chat
 [coverage-img]:     https://coveralls.io/repos/sakejs/sake-outdated/badge.svg?branch=master&service=github
 [coverage-url]:     https://coveralls.io/github/sakejs/sake-outdated?branch=master
 [dependencies-img]: https://david-dm.org/sakejs/sake-outdated.svg
