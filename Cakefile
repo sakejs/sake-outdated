@@ -1,5 +1,4 @@
 use 'sake-bundle'
-use 'sake-outdated'
 use 'sake-publish'
 use 'sake-test'
 use 'sake-version'
