@@ -14,9 +14,16 @@ needsUpdate = (stdout) ->
 export default (opts = {}) ->
   opts.commit ?= true
 
+  if Array.isArray opts.ignore
+    opts.ignore = opts.ignore.join ','
+  else
+    opts.ignore ?= null
+
   # Find path to node-check-updates binary
   # TODO: Figure out why npm does not correctly symlink it's binary
-  ncu = path.join (path.dirname (require.resolve 'npm4-check-updates')), '../bin/ncu'
+  ncuPath = path.dirname (require.resolve 'npm4-check-updates')
+  ncuBin  = path.join ncuPath, '../bin/ncu'
+  ncu     = if opts.ignore? then "#{ncuBin} -x #{opts.ignore}" else ncuBin
 
   task 'outdated', 'show outdated packages', ->
     return unless yield npmFix()
