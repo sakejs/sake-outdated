@@ -24,16 +24,16 @@
   },
   "homepage": "https://github.com/sakejs/sake-outdated#readme",
   "dependencies": {
-    "executive": "1.2.6",
+    "executive": "1.2.7",
     "npm4-check-updates": "2.10.4",
     "tmp": "0.0.31"
   },
   "devDependencies": {
-    "coffee-script": "1.12.4",
-    "sake-bundle": "0.4.2",
-    "sake-publish": "0.1.10",
-    "sake-test": "0.1.0",
+    "coffee-script": "1.12.5",
+    "sake-bundle": "0.4.10",
+    "sake-publish": "0.1.11",
+    "sake-test": "0.1.2",
     "sake-version": "0.1.16",
-    "sake-yarn": "0.1.1"
+    "sake-yarn": "0.1.2"
   }
 }
