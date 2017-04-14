@@ -4,7 +4,6 @@
   "description": "Find and update outdated packages.",
   "main": "lib/sake-outdated.js",
   "module": "lib/sake-outdated.mjs",
-  "js:next": "lib/sake-outdated.mjs",
   "files": [
     "lib/",
     "src/"
