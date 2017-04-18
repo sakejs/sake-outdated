@@ -2,7 +2,7 @@ import exec from 'executive'
 import fs   from 'fs'
 import tmp  from 'tmp'
 
-import {gitExists, arseDeps, splitLines} from './utils'
+import {gitExists, parseDeps, splitLines} from './utils'
 
 write = (data) ->
   new Promise (resolve, reject) ->
