@@ -13,15 +13,28 @@ export log = (stdout, stderr) ->
   console.log   stdout if stdout
   console.error stderr if stderr
 
+# Checks whether the local git directory exists
+export gitExists = ->
+  new Promise (resolve, reject) ->
+    exec.quiet 'git rev-parse --git-dir'
+      .then ({stderr}) ->
+        if /fatal: Not a git repository/.test stderr
+          resolve false
+        else
+          resolve true
+
 # Checks whether the local git working directory is clean or not
 export gitOk = ->
   new Promise (resolve, reject) ->
-    exec.quiet 'git status --porcelain'
-      .then ({stderr, stdout}) ->
-        if stderr or stdout
-          reject new Error 'Git working directory not clean'
-        else
-          resolve true
+    gitExists().then (exists) ->
+      return resolve true unless exists
+
+      exec.quiet 'git status --porcelain'
+        .then ({stderr, stdout}) ->
+          if stderr or stdout
+            reject new Error 'Git working directory not clean'
+          else
+            resolve true
 
 # Split stdout lines, skipping header/footer text
 export splitLines = (stdout) ->
