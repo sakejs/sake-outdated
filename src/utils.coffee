@@ -32,6 +32,7 @@ export gitOk = ->
       exec.quiet 'git status --porcelain'
         .then ({stderr, stdout}) ->
           if stderr or stdout
+            console.error stdout+stderr
             reject new Error 'Git working directory not clean'
           else
             resolve true
