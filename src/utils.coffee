@@ -1,5 +1,3 @@
-import exec from 'executive'
-
 import replacements from './replacements'
 
 # Log helper to replace messages with our defaults

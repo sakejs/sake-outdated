@@ -1,6 +1,5 @@
-import exec from 'executive'
-import fs   from 'fs'
-import tmp  from 'tmp'
+import fs  from 'fs'
+import tmp from 'tmp'
 
 import {gitExists, parseDeps, splitLines} from './utils'
 

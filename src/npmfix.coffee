@@ -1,5 +1,4 @@
-import fs   from 'fs'
-import exec from 'executive'
+import fs from 'fs'
 import {join, dirname} from 'path'
 
 export default ->
