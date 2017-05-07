@@ -2,10 +2,8 @@ import path from 'path'
 
 import npmFix from './npmfix'
 import update from './update'
-import {gitOk, log} from './utils'
+import {gitOk, log, needsUpdate, stripNcu} from './utils'
 
-needsUpdate = (stdout) ->
-  /Upgraded .*package\.json/.test(stdout)
 
 export default (opts = {}) ->
   opts.commit ?= true
@@ -46,6 +44,7 @@ export default (opts = {}) ->
     {stdout, stderr, status} = yield exec.quiet ncu + ' -u -a'
 
     # ncu erroneously logs message to use -a even when you use -a, strip that
+    stdout = stripNcu stdout
 
     log stdout, stderr
     process.exit status if status != 0
