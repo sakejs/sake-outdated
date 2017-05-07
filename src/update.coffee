@@ -30,6 +30,7 @@ export default (stdout) ->
         path = null
 
         cmds = [
+          'echo'
           'git add .'
           -> (write message).then (v) -> path = v
           -> "git commit -F #{path}"
@@ -40,11 +41,11 @@ export default (stdout) ->
       if tasks.has 'yarn:upgrade'
         # Ensure yarn runs first so yarn.lock file is committed
         cmds.unshift 'yarn upgrade'
+        cmds.unshift 'echo'
       else
         # Otherwise run npm update last
+        cmds.push 'echo'
         cmds.push 'npm update'
-
-      console.log ''
 
       exec cmds
         .then resolve
