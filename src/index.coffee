@@ -2,14 +2,10 @@ import path from 'path'
 
 import npmFix from './npmfix'
 import update from './update'
-import {gitOk, log, splitLines, parseDeps} from './utils'
+import {gitOk, log} from './utils'
 
 needsUpdate = (stdout) ->
-  deps = parseDeps splitLines stdout
-  if deps.length
-    true
-  else
-    false
+  /Upgraded .*package\.json/.test(stdout)
 
 export default (opts = {}) ->
   opts.commit ?= true
