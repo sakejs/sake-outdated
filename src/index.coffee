@@ -44,6 +44,9 @@ export default (opts = {}) ->
     return unless yield gitOk()
 
     {stdout, stderr, status} = yield exec.quiet ncu + ' -u -a'
+
+    # ncu erroneously logs message to use -a even when you use -a, strip that
+
     log stdout, stderr
     process.exit status if status != 0
 
