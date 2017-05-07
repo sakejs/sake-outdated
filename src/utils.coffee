@@ -67,6 +67,10 @@ export needsUpdate = (stdout) ->
 
 # Strip ncu -a message
 export stripNcu = (stdout) ->
-  console.log JSON.stringify stdout
-  stdout = stdout.replace 'The following dependencies are satisfied by their declared version range, but the installed versions are behind. You can install the latest versions without modifying your package file by using npm update. If you want to update the dependencies in your package file anyway, run ncu -a.', ''
-  stdout = stdout.replace 'The following dependency is satisfied by its declared version range, but the installed version is behind. You can install the latest version without modifying your package file by using npm update. If you want to update the dependencies in your package file anyway, run ncu -a.', ''
+  messages = [
+    '\nThe following dependencies are satisfied by their declared version range, but the installed versions are behind. You can install the latest versions without modifying your package file by using npm update. If you want to update the dependencies in your package file anyway, run ncu -a.\n'
+    '\nThe following dependency is satisfied by its declared version range, but the installed version is behind. You can install the latest version without modifying your package file by using npm update. If you want to update the dependency in your package file anyway, run ncu -a.\n'
+  ]
+  for msg in messages
+    stdout = stdout.replace msg, ''
+  stdout
