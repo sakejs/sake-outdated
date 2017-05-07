@@ -44,6 +44,8 @@ export default (stdout) ->
         # Otherwise run npm update last
         cmds.push 'npm update'
 
+      console.log ''
+
       exec cmds
         .then resolve
         .catch reject
