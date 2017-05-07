@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/sakejs/sake-outdated#readme",
   "dependencies": {
-    "npm4-check-updates": "^2.11.3",
+    "npm4-check-updates": "^2.11.4",
     "tmp": "0.0.31"
   },
   "devDependencies": {
@@ -34,7 +34,7 @@
     "executive": "^1.5.5",
     "sake-bundle": "^0.5.1",
     "sake-cli": "^0.5.5",
-    "sake-publish": "^0.1.14",
+    "sake-publish": "^0.1.15",
     "sake-test": "^0.1.5",
     "sake-version": "^0.1.19",
     "sake-yarn": "^0.1.2"
