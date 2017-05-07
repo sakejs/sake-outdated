@@ -63,9 +63,9 @@ export parseDeps = (lines) ->
 
 # Check stdout to see if we need to commit changes
 export needsUpdate = (stdout) ->
-  /Upgraded .*package\.json/.test(stdout)
+  /Upgraded .*package\.json/.test stdout
 
 # Strip ncu -a message
 export stripNcu = (stdout) ->
-  stdout = stdout.replace 'The following dependencies are satisfied by their declared version range, but the installed versions are behind. You can install the latest versions without modifying your package file by using npm update. If you want to update the dependencies in your package file anyway, run ncu -a.', ''
-  stdout = stdout.replace 'The following dependency is satisfied by its declared version range, but the installed version is behind. You can install the latest version without modifying your package file by using npm update. If you want to update the dependencies in your package file anyway, run ncu -a.', ''
+  stdout = stdout.replace '\nThe following dependencies are satisfied by their declared version range, but the installed versions are behind. You can install the latest versions without modifying your package file by using npm update. If you want to update the dependencies in your package file anyway, run ncu -a.\n', ''
+  stdout = stdout.replace '\nThe following dependency is satisfied by its declared version range, but the installed version is behind. You can install the latest version without modifying your package file by using npm update. If you want to update the dependencies in your package file anyway, run ncu -a.\n', ''
