@@ -15,7 +15,7 @@ export default (opts = {}) ->
 
   # Find path to node-check-updates binary
   # TODO: Figure out why npm does not correctly symlink it's binary
-  ncuPath = path.dirname (require.resolve 'npm4-check-updates')
+  ncuPath = path.dirname (require.resolve 'npm-check-updates-lite')
   ncuBin  = path.join ncuPath, '../bin/ncu'
   ncu     = if opts.ignore? then "#{ncuBin} -x #{opts.ignore}" else ncuBin
 
