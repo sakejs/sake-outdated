@@ -3,8 +3,6 @@ use 'sake-publish'
 use 'sake-test'
 use 'sake-version'
 
-# use 'sake-yarn'
-
 try
   use require './'
 catch err
