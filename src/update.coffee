@@ -48,6 +48,12 @@ export default (stdout) ->
         cmds.push 'echo'
         cmds.push 'npm update'
 
-      exec cmds
-        .then resolve
+      exec.quiet cmds
+        .then (res) ->
+          # Execute adds an extra newline, so we trim that here but preserve
+          # stderr (in case it exists)
+          console.log '\n'
+          console.log res.stdout.trim()
+          console.log res.stderr if res.stderr != ''
+          resolve true
         .catch reject
