@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/sakejs/sake-outdated#readme",
   "dependencies": {
-    "npm-check-updates-lite": "^2.14.1",
+    "npm-check-updates-lite": "^2.14.2",
     "tmp": "0.0.33"
   },
   "devDependencies": {
