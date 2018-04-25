@@ -16,4 +16,7 @@ export default [
 ,
   from: 'All dependencies match the latest package versions :)'
   to:   'All dependencies up to date'
+,
+  from: 'Upgraded /'
+  to:   'Updated /'
 ]

@@ -24,7 +24,6 @@ export gitExists = ->
 # Checks whether the local git working directory is clean or not
 export gitOk = ->
   new Promise (resolve, reject) ->
-    return resolve true
     gitExists().then (exists) ->
       return resolve true unless exists
 
@@ -38,10 +37,13 @@ export gitOk = ->
 
 # Split stdout lines, skipping header/footer text
 export splitLines = (stdout) ->
-  lines = stdout.split '\n'
+  lines = stdout.trim().split '\n'
 
   # Trim header/footer
-  lines = lines.slice 2, -4
+  lines = lines.slice 1, -1
+
+  # Clear any trailing newlines
+  lines = lines.join('\n').trim().split '\n'
 
   # Normalize spacing
   for line, i in lines
@@ -56,13 +58,10 @@ export splitLines = (stdout) ->
 
 # Reads updated deps from output of command
 export parseDeps = (lines) ->
-  console.log lines
   for dep in lines
     dep = (dep.trim().split ' ').shift()
     continue if dep == ''
-    continue if dep
     dep
-
 
 # Check stdout to see if we need to commit changes
 export needsUpdate = (stdout) ->

@@ -35,6 +35,7 @@ export default (stdout) ->
           -> (write message).then (v) -> path = v
           -> "git commit -F #{path}"
         ]
+
       else
         cmds = []
 
