@@ -1,6 +1,6 @@
 {
   "name": "sake-outdated",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Find and update outdated packages.",
   "main": "lib/sake-outdated.js",
   "module": "lib/sake-outdated.mjs",
