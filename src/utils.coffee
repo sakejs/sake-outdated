@@ -24,6 +24,7 @@ export gitExists = ->
 # Checks whether the local git working directory is clean or not
 export gitOk = ->
   new Promise (resolve, reject) ->
+    return resolve true
     gitExists().then (exists) ->
       return resolve true unless exists
 
@@ -55,9 +56,11 @@ export splitLines = (stdout) ->
 
 # Reads updated deps from output of command
 export parseDeps = (lines) ->
+  console.log lines
   for dep in lines
     dep = (dep.trim().split ' ').shift()
     continue if dep == ''
+    continue if dep
     dep
 
 
