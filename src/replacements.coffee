@@ -18,5 +18,5 @@ export default [
   to:   'All dependencies up to date'
 ,
   from: 'Upgraded /'
-  to:   'Updated /'
+  to:   '\nUpdated /'
 ]
