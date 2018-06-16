@@ -30,10 +30,10 @@
     "tmp": "0.0.33"
   },
   "devDependencies": {
-    "coffeescript": "^2.2.4",
+    "coffeescript": "^2.3.1",
     "executive": "^1.5.13",
-    "sake-bundle": "^0.6.7",
-    "sake-cli": "^0.6.5",
+    "sake-bundle": "^0.6.14",
+    "sake-cli": "^0.7.2",
     "sake-publish": "^0.1.17",
     "sake-test": "^0.2.1",
     "sake-version": "^0.1.19"
