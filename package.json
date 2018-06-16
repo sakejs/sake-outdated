@@ -3,7 +3,8 @@
   "version": "0.3.0",
   "description": "Find and update outdated packages.",
   "main": "lib/sake-outdated.js",
-  "module": "lib/sake-outdated.mjs",
+  "module": "lib/sake-outdated.es.js",
+  "jsnext:main": "lib/sake-outdated.es.js",
   "files": [
     "lib/",
     "src/"
