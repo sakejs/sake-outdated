@@ -7,8 +7,15 @@
 [![license][license-img]][license-url]
 [![chat][chat-img]][chat-url]
 
-Add `outdated` and `outdated:update` tasks to your Sakefile. Automatically
-update node.js dependencies.
+Add `outdated` and `outdated:update` tasks to your Sakefile. Updates Node
+dependencies, `package.json`, lock files and automatically generates pretty git
+commits.
+
+## Features
+- Update dependencies in package.json automatically
+- Generate nicely formatted corresponding git commit
+- Automatically commit changes and corresponding updates to package.json and lock files
+- Integrates with npm and yarn
 
 ## Install
 ```bash
