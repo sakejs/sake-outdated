@@ -28,17 +28,18 @@ export default (opts = {}) ->
 
   task 'outdated:update', 'update outdated packages', ->
     return unless yield npmFix()
+    return unless yield gitOk()
 
     {stdout, stderr, status} = yield exec.quiet ncu + ' -u'
     log stdout, stderr
     process.exit status if status != 0
 
     if needsUpdate stdout
-      return unless yield gitOk()
       yield update stdout if opts.commit
 
   task 'outdated:all', 'update all outdated packages', ->
     return unless yield npmFix()
+    return unless yield gitOk()
 
     {stdout, stderr, status} = yield exec.quiet ncu + ' -u -a'
 
@@ -49,5 +50,4 @@ export default (opts = {}) ->
     process.exit status if status != 0
 
     if needsUpdate stdout
-      return unless yield gitOk()
       yield update stdout if opts.commit
