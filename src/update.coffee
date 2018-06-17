@@ -47,7 +47,7 @@ export default (stdout) ->
       if tasks.has 'yarn:upgrade'
         cmds.push 'yarn upgrade'
       else
-        cmds.push 'npm update'
+        cmds.push 'npm install'
 
       # Add commit message if we're in a git repo
       cmds = cmds.concat gitCommit stdout if exists
