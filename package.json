@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "coffeescript": "^2.3.1",
-    "executive": "^1.5.13",
+    "executive": "^1.6.3",
     "sake-bundle": "^0.6.14",
     "sake-cli": "^0.7.2",
     "sake-publish": "^0.1.17",
