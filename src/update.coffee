@@ -14,40 +14,45 @@ write = (data) ->
         else
           resolve path
 
+formatMessage = (stdout) ->
+  lines = splitLines stdout
+  deps  = parseDeps lines
+
+  """
+  Update #{deps.join ', '}
+
+  #{lines.join '\n'}
+  """
+
+gitCommit = (stdout) ->
+  message = formatMessage stdout
+  path    = null
+
+  [
+    'echo'
+    'git add .'
+    -> (write message).then (v) -> path = v
+    -> "git commit -F #{path}"
+  ]
+
 # Commit changes + run npm or yarn update
 export default (stdout) ->
   new Promise (resolve, reject) ->
+
+    # Check if we're in a git repo
     gitExists().then (exists) ->
-      if exists
-        lines   = splitLines stdout
-        deps    = parseDeps lines
-        message = """
-          Update #{deps.join ', '}
+      cmds = []
 
-          #{lines.join '\n'}
-          """
-
-        path = null
-
-        cmds = [
-          'echo'
-          'git add .'
-          -> (write message).then (v) -> path = v
-          -> "git commit -F #{path}"
-        ]
-
-      else
-        cmds = []
-
+      # Do yarn upgrade / npm update
       if tasks.has 'yarn:upgrade'
-        # Ensure yarn runs first so yarn.lock file is committed
-        cmds.unshift 'yarn upgrade'
-        cmds.unshift 'echo'
+        cmds.push 'yarn upgrade'
       else
-        # Otherwise run npm update last
-        cmds.push 'echo'
         cmds.push 'npm update'
 
+      # Add commit message if we're in a git repo
+      cmds = cmds.concat gitCommit stdout if exists
+
+      # Do update
       exec.quiet cmds
         .then (res) ->
           # Execute adds an extra newline, so we trim that here but preserve
