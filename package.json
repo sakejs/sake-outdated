@@ -2,9 +2,9 @@
   "name": "sake-outdated",
   "version": "0.4.0",
   "description": "Find and update outdated packages.",
-  "main": "lib/sake-outdated.js",
-  "module": "lib/sake-outdated.es.js",
-  "jsnext:main": "lib/sake-outdated.es.js",
+  "main": "lib/sake-outdated.cjs.js",
+  "module": "lib/sake-outdated.es6.js",
+  "jsnext:main": "lib/sake-outdated.es6.js",
   "files": [
     "lib/",
     "src/"
