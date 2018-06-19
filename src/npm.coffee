@@ -1,7 +1,9 @@
 import fs from 'fs'
 import {join, dirname} from 'path'
 
-export default ->
+
+# Fix long-standing bug with various versions of npm
+export npmFix = ->
   new Promise (resolve, reject) ->
     try
       require 'npm'
@@ -21,3 +23,19 @@ export default ->
               .catch reject
           else
             reject 'Unable to apply npmfix'
+
+
+# Do yarn upgrade / npm update
+export npmInstall = ->
+  if tasks.has 'yarn:upgrade'
+    exec '''
+         echo
+         echo $ yarn upgrade
+         yarn upgrade
+         '''
+  else
+    exec '''
+         echo
+         echo $ npm install
+         npm install
+         '''
