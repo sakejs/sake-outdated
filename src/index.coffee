@@ -1,8 +1,8 @@
 import path from 'path'
 
-import npmFix from './npmfix'
-import update from './update'
-import {gitOk, log, needsUpdate, stripNcu} from './utils'
+import {gitOk, gitCommit}           from './git'
+import {npmFix, npmInstall}         from './npm'
+import {log, needsUpdate, stripNcu} from './utils'
 
 
 export default (opts = {}) ->
@@ -35,7 +35,8 @@ export default (opts = {}) ->
     process.exit status if status != 0
 
     if needsUpdate stdout
-      yield update stdout if opts.commit
+      yield npmInstall()
+      yield gitCommit stdout if opts.commit
 
   task 'outdated:all', 'update all outdated packages', ->
     return unless yield npmFix()
@@ -50,4 +51,5 @@ export default (opts = {}) ->
     process.exit status if status != 0
 
     if needsUpdate stdout
-      yield update stdout if opts.commit
+      yield npmInstall()
+      yield gitCommit stdout if opts.commit
