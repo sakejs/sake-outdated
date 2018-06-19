@@ -29,7 +29,6 @@ gitCommit = (stdout) ->
   path    = null
 
   [
-    'echo'
     'git add .'
     -> (write message).then (v) -> path = v
     -> "git commit -F #{path}"
@@ -57,7 +56,7 @@ export default (stdout) ->
         .then (res) ->
           # Execute adds an extra newline, so we trim that here but preserve
           # stderr (in case it exists)
-          console.log '\n' + res.stdout.trim()
+          console.log res.stdout.trim()
           console.log res.stderr if res.stderr != ''
           resolve true
         .catch reject
