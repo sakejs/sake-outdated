@@ -75,6 +75,7 @@ export gitCommit = (stdout) ->
 
         exec.quiet cmds
           .then (res) ->
+            console.log()
             console.log res.stdout.trim()
             console.log res.stderr.trim() if res.stderr != ''
             resolve true
